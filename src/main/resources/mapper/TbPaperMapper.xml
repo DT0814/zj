@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.zj.dao.TbPaperMapper" >
+  <resultMap id="BaseResultMap" type="com.xawl.zj.pojo.TbPaper" >
+    <id column="paid" property="paid" jdbcType="INTEGER" />
+    <result column="snum" property="snum" jdbcType="INTEGER" />
+    <result column="bnum" property="bnum" jdbcType="INTEGER" />
+    <result column="sanum" property="sanum" jdbcType="INTEGER" />
+    <result column="tnum" property="tnum" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="CHAR" />
+    <result column="time" property="time" jdbcType="INTEGER" />
+    <result column="cid" property="cid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    paid, snum, bnum, sanum, tnum, name, time, cid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xawl.zj.pojo.TbPaperExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_paper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_paper
+    where paid = #{paid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_paper
+    where paid = #{paid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xawl.zj.pojo.TbPaperExample" >
+    delete from tb_paper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xawl.zj.pojo.TbPaper" >
+    insert into tb_paper (paid, snum, bnum, 
+      sanum, tnum, name, time, 
+      cid)
+    values (#{paid,jdbcType=INTEGER}, #{snum,jdbcType=INTEGER}, #{bnum,jdbcType=INTEGER}, 
+      #{sanum,jdbcType=INTEGER}, #{tnum,jdbcType=CHAR}, #{name,jdbcType=CHAR}, #{time,jdbcType=INTEGER}, 
+      #{cid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xawl.zj.pojo.TbPaper" >
+    insert into tb_paper
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paid != null" >
+        paid,
+      </if>
+      <if test="snum != null" >
+        snum,
+      </if>
+      <if test="bnum != null" >
+        bnum,
+      </if>
+      <if test="sanum != null" >
+        sanum,
+      </if>
+      <if test="tnum != null" >
+        tnum,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="cid != null" >
+        cid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paid != null" >
+        #{paid,jdbcType=INTEGER},
+      </if>
+      <if test="snum != null" >
+        #{snum,jdbcType=INTEGER},
+      </if>
+      <if test="bnum != null" >
+        #{bnum,jdbcType=INTEGER},
+      </if>
+      <if test="sanum != null" >
+        #{sanum,jdbcType=INTEGER},
+      </if>
+      <if test="tnum != null" >
+        #{tnum,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=CHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null" >
+        #{cid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xawl.zj.pojo.TbPaperExample" resultType="java.lang.Integer" >
+    select count(*) from tb_paper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_paper
+    <set >
+      <if test="record.paid != null" >
+        paid = #{record.paid,jdbcType=INTEGER},
+      </if>
+      <if test="record.snum != null" >
+        snum = #{record.snum,jdbcType=INTEGER},
+      </if>
+      <if test="record.bnum != null" >
+        bnum = #{record.bnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.sanum != null" >
+        sanum = #{record.sanum,jdbcType=INTEGER},
+      </if>
+      <if test="record.tnum != null" >
+        tnum = #{record.tnum,jdbcType=CHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=CHAR},
+      </if>
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=INTEGER},
+      </if>
+      <if test="record.cid != null" >
+        cid = #{record.cid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_paper
+    set paid = #{record.paid,jdbcType=INTEGER},
+      snum = #{record.snum,jdbcType=INTEGER},
+      bnum = #{record.bnum,jdbcType=INTEGER},
+      sanum = #{record.sanum,jdbcType=INTEGER},
+      tnum = #{record.tnum,jdbcType=CHAR},
+      name = #{record.name,jdbcType=CHAR},
+      time = #{record.time,jdbcType=INTEGER},
+      cid = #{record.cid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xawl.zj.pojo.TbPaper" >
+    update tb_paper
+    <set >
+      <if test="snum != null" >
+        snum = #{snum,jdbcType=INTEGER},
+      </if>
+      <if test="bnum != null" >
+        bnum = #{bnum,jdbcType=INTEGER},
+      </if>
+      <if test="sanum != null" >
+        sanum = #{sanum,jdbcType=INTEGER},
+      </if>
+      <if test="tnum != null" >
+        tnum = #{tnum,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=CHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null" >
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where paid = #{paid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xawl.zj.pojo.TbPaper" >
+    update tb_paper
+    set snum = #{snum,jdbcType=INTEGER},
+      bnum = #{bnum,jdbcType=INTEGER},
+      sanum = #{sanum,jdbcType=INTEGER},
+      tnum = #{tnum,jdbcType=CHAR},
+      name = #{name,jdbcType=CHAR},
+      time = #{time,jdbcType=INTEGER},
+      cid = #{cid,jdbcType=INTEGER}
+    where paid = #{paid,jdbcType=INTEGER}
+  </update>
+</mapper>

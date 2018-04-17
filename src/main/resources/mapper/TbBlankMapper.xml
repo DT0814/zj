@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.zj.dao.TbBlankMapper">
+    <resultMap id="BaseResultMap" type="com.xawl.zj.pojo.TbBlank">
+        <id column="bid" property="bid" jdbcType="INTEGER"/>
+        <result column="stem" property="stem" jdbcType="CHAR"/>
+        <result column="answer" property="answer" jdbcType="CHAR"/>
+        <result column="score" property="score" jdbcType="INTEGER"/>
+        <result column="pid" property="pid" jdbcType="INTEGER"/>
+        <result column="did" property="did" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        bid, stem, answer, score, pid, did
+    </sql>
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xawl.zj.pojo.TbBlankExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from tb_blank
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_blank
+        where bid = #{bid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_blank
+    where bid = #{bid,jdbcType=INTEGER}
+  </delete>
+    <delete id="deleteByExample" parameterType="com.xawl.zj.pojo.TbBlankExample">
+        delete from tb_blank
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.xawl.zj.pojo.TbBlank">
+    insert into tb_blank (bid, stem, answer, 
+      score, pid, did)
+    values (#{bid,jdbcType=INTEGER}, #{stem,jdbcType=CHAR}, #{answer,jdbcType=CHAR}, 
+      #{score,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{did,jdbcType=INTEGER})
+  </insert>
+    <insert id="insertSelective" parameterType="com.xawl.zj.pojo.TbBlank">
+        insert into tb_blank
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="bid != null">
+                bid,
+            </if>
+            <if test="stem != null">
+                stem,
+            </if>
+            <if test="answer != null">
+                answer,
+            </if>
+            <if test="score != null">
+                score,
+            </if>
+            <if test="pid != null">
+                pid,
+            </if>
+            <if test="did != null">
+                did,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="bid != null">
+                #{bid,jdbcType=INTEGER},
+            </if>
+            <if test="stem != null">
+                #{stem,jdbcType=CHAR},
+            </if>
+            <if test="answer != null">
+                #{answer,jdbcType=CHAR},
+            </if>
+            <if test="score != null">
+                #{score,jdbcType=INTEGER},
+            </if>
+            <if test="pid != null">
+                #{pid,jdbcType=INTEGER},
+            </if>
+            <if test="did != null">
+                #{did,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.xawl.zj.pojo.TbBlankExample" resultType="java.lang.Integer">
+        select count(*) from tb_blank
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update tb_blank
+        <set>
+            <if test="record.bid != null">
+                bid = #{record.bid,jdbcType=INTEGER},
+            </if>
+            <if test="record.stem != null">
+                stem = #{record.stem,jdbcType=CHAR},
+            </if>
+            <if test="record.answer != null">
+                answer = #{record.answer,jdbcType=CHAR},
+            </if>
+            <if test="record.score != null">
+                score = #{record.score,jdbcType=INTEGER},
+            </if>
+            <if test="record.pid != null">
+                pid = #{record.pid,jdbcType=INTEGER},
+            </if>
+            <if test="record.did != null">
+                did = #{record.did,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update tb_blank
+        set bid = #{record.bid,jdbcType=INTEGER},
+        stem = #{record.stem,jdbcType=CHAR},
+        answer = #{record.answer,jdbcType=CHAR},
+        score = #{record.score,jdbcType=INTEGER},
+        pid = #{record.pid,jdbcType=INTEGER},
+        did = #{record.did,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xawl.zj.pojo.TbBlank">
+        update tb_blank
+        <set>
+            <if test="stem != null">
+                stem = #{stem,jdbcType=CHAR},
+            </if>
+            <if test="answer != null">
+                answer = #{answer,jdbcType=CHAR},
+            </if>
+            <if test="score != null">
+                score = #{score,jdbcType=INTEGER},
+            </if>
+            <if test="pid != null">
+                pid = #{pid,jdbcType=INTEGER},
+            </if>
+            <if test="did != null">
+                did = #{did,jdbcType=INTEGER},
+            </if>
+        </set>
+        where bid = #{bid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.xawl.zj.pojo.TbBlank">
+    update tb_blank
+    set stem = #{stem,jdbcType=CHAR},
+      answer = #{answer,jdbcType=CHAR},
+      score = #{score,jdbcType=INTEGER},
+      pid = #{pid,jdbcType=INTEGER},
+      did = #{did,jdbcType=INTEGER}
+    where bid = #{bid,jdbcType=INTEGER}
+  </update>
+    <!--生成结束-->
+    <select id="selectByCount" parameterType="java.lang.Integer" resultType="com.xawl.zj.pojo.TbBlank">
+        select * from tb_blank
+        ORDER BY RAND() LIMIT #{bnum}
+    </select>
+    <select id="findAll" resultType="com.xawl.zj.pojo.BlankResult">
+        SELECT * FROM  tb_blank blank ,tb_difficulty difficulty,tb_point point WHERE blank.pid=point.pid AND blank.did=difficulty.did
+    </select>
+
+</mapper>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.zj.dao.TbTeacherMapper" >
+  <resultMap id="BaseResultMap" type="com.xawl.zj.pojo.TbTeacher" >
+    <id column="tnum" property="tnum" jdbcType="CHAR" />
+    <result column="tname" property="tname" jdbcType="CHAR" />
+    <result column="tpass" property="tpass" jdbcType="CHAR" />
+    <result column="introduce" property="introduce" jdbcType="CHAR" />
+    <result column="phone" property="phone" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    tnum, tname, tpass, introduce, phone
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xawl.zj.pojo.TbTeacherExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_teacher
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_teacher
+    where tnum = #{tnum,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_teacher
+    where tnum = #{tnum,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xawl.zj.pojo.TbTeacherExample" >
+    delete from tb_teacher
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xawl.zj.pojo.TbTeacher" >
+    insert into tb_teacher (tnum, tname, tpass, introduce, 
+      phone)
+    values (#{tnum,jdbcType=CHAR}, #{tname,jdbcType=CHAR}, #{tpass,jdbcType=CHAR}, #{introduce,jdbcType=CHAR}, 
+      #{phone,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xawl.zj.pojo.TbTeacher" >
+    insert into tb_teacher
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tnum != null" >
+        tnum,
+      </if>
+      <if test="tname != null" >
+        tname,
+      </if>
+      <if test="tpass != null" >
+        tpass,
+      </if>
+      <if test="introduce != null" >
+        introduce,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tnum != null" >
+        #{tnum,jdbcType=CHAR},
+      </if>
+      <if test="tname != null" >
+        #{tname,jdbcType=CHAR},
+      </if>
+      <if test="tpass != null" >
+        #{tpass,jdbcType=CHAR},
+      </if>
+      <if test="introduce != null" >
+        #{introduce,jdbcType=CHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xawl.zj.pojo.TbTeacherExample" resultType="java.lang.Integer" >
+    select count(*) from tb_teacher
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_teacher
+    <set >
+      <if test="record.tnum != null" >
+        tnum = #{record.tnum,jdbcType=CHAR},
+      </if>
+      <if test="record.tname != null" >
+        tname = #{record.tname,jdbcType=CHAR},
+      </if>
+      <if test="record.tpass != null" >
+        tpass = #{record.tpass,jdbcType=CHAR},
+      </if>
+      <if test="record.introduce != null" >
+        introduce = #{record.introduce,jdbcType=CHAR},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_teacher
+    set tnum = #{record.tnum,jdbcType=CHAR},
+      tname = #{record.tname,jdbcType=CHAR},
+      tpass = #{record.tpass,jdbcType=CHAR},
+      introduce = #{record.introduce,jdbcType=CHAR},
+      phone = #{record.phone,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xawl.zj.pojo.TbTeacher" >
+    update tb_teacher
+    <set >
+      <if test="tname != null" >
+        tname = #{tname,jdbcType=CHAR},
+      </if>
+      <if test="tpass != null" >
+        tpass = #{tpass,jdbcType=CHAR},
+      </if>
+      <if test="introduce != null" >
+        introduce = #{introduce,jdbcType=CHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=CHAR},
+      </if>
+    </set>
+    where tnum = #{tnum,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xawl.zj.pojo.TbTeacher" >
+    update tb_teacher
+    set tname = #{tname,jdbcType=CHAR},
+      tpass = #{tpass,jdbcType=CHAR},
+      introduce = #{introduce,jdbcType=CHAR},
+      phone = #{phone,jdbcType=CHAR}
+    where tnum = #{tnum,jdbcType=CHAR}
+  </update>
+</mapper>
