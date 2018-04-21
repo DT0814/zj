@@ -1,5 +1,7 @@
 package com.xawl.zj.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.xawl.zj.dao.TbStudentMapper;
 import com.xawl.zj.pojo.TbStudent;
 import com.xawl.zj.pojo.TbStudentExample;
@@ -13,10 +15,12 @@ public class StudentService {
     @Autowired
     private TbStudentMapper tbStudentMapper;
 
-    public List<TbStudent> findAll() {
+    public PageInfo findAll(Integer page, Integer num) {
+        PageHelper.startPage(page, num);
         TbStudentExample example = new TbStudentExample();
         List<TbStudent> tbStudents = tbStudentMapper.selectByExample(example);
-        return tbStudents;
+        PageInfo pageInfo = new PageInfo(tbStudents);
+        return pageInfo;
     }
 
     public int insert(TbStudent student) {
@@ -34,5 +38,12 @@ public class StudentService {
     public TbStudent findBySnum(String sum) {
         TbStudent student = tbStudentMapper.selectByPrimaryKey(sum);
         return student;
+    }
+
+    public List<TbStudent> findByCid(Integer cid) {
+        TbStudentExample example = new TbStudentExample();
+        example.createCriteria().andCidEqualTo(cid);
+        List<TbStudent> tbStudents = tbStudentMapper.selectByExample(example);
+        return tbStudents;
     }
 }

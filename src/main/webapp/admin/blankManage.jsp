@@ -91,7 +91,6 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <button class="close" data-dismiss="modal">
-                        <span>&times;</span>
                     </button>
                 </div>
                 <div class="modal-title">
@@ -138,7 +137,6 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <button class="close" data-dismiss="modal">
-                        <span>&times;</span>
                     </button>
                 </div>
                 <div class="modal-title">
@@ -157,11 +155,17 @@
                         <div class="form-group">
                             <label>难度:</label>
                             <select class="form-control" name="did">
+                                <option v-for="d in difficulty" v-bind:value="d.did">
+                                    {{d.dname}}
+                                </option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>所属知识点:</label>
                             <select class="form-control" name="pid">
+                                <option v-for="p in point" v-bind:value="p.pid">
+                                    {{p.name}}
+                                </option>
                             </select>
                         </div>
                         <div class="text-right">
@@ -191,7 +195,7 @@
         },
         methods: {
             updateModal: function (bl) {
-                axios.get('/difficulty/findAll.action')
+                axios.get('${APP_PATH}/difficulty/findAll.action')
                         .then(function (response) {
                             var dse = $("#updateForm").find("select[name='did']");
                             dse.empty();
@@ -203,7 +207,7 @@
                                 option.appendTo(dse);
                             })
                         });
-                axios.get('/point/findAll.action')
+                axios.get('${APP_PATH}/point/findAll.action')
                         .then(function (response) {
                             var pse = $("#updateForm").find("select[name='pid']");
                             pse.empty();
@@ -228,7 +232,7 @@
                 $("#updateModal").modal();
             },
             update: function () {
-                axios.post('/blank/update.action', $("#updateForm").serialize())
+                axios.post('${APP_PATH}/blank/update.action', $("#updateForm").serialize())
                         .then(function (response) {
                             var result = response.data;
                             if (result.code == 200) {
@@ -241,18 +245,18 @@
                         });
             },
             addmodal: function () {
-                axios.get('/difficulty/findAll.action')
+                axios.get('${APP_PATH}/difficulty/findAll.action')
                         .then(function (response) {
                             vu.difficulty = response.data.data;
                         });
-                axios.get('/point/findAll.action')
+                axios.get('${APP_PATH}/point/findAll.action')
                         .then(function (response) {
                             vu.point = response.data.data;
                         });
                 $("#addModal").modal();
             },
             add: function () {
-                axios.post('/blank/insert.action', $("#addForm").serialize())
+                axios.post('${APP_PATH}/blank/insert.action', $("#addForm").serialize())
                         .then(function (response) {
                             var result = response.data;
                             if (result.code == 200) {
@@ -265,14 +269,14 @@
                         });
             },
             topage: function (page) {
-                axios.get('/blank/findAll.action?page=' + page)
+                axios.get('${APP_PATH}/blank/findAll.action?page=' + page)
                         .then(function (response) {
                             console.log(response);
                             vu.pageInfo = response.data.data;
                         });
             },
             deleteC: function (bid) {
-                axios.get('/blank/delete.action?bid=' + bid)
+                axios.get('${APP_PATH}/blank/delete.action?bid=' + bid)
                         .then(function (response) {
                             var data = response.data;
                             if (data.code == 200) {

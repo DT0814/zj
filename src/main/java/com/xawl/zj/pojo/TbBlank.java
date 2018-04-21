@@ -60,4 +60,16 @@ public class TbBlank {
     public void setDid(Integer did) {
         this.did = did;
     }
+
+    @Override
+    public String toString() {
+        return "TbBlank{" +
+                "bid=" + bid +
+                ", stem='" + stem + '\'' +
+                ", answer='" + answer + '\'' +
+                ", score=" + score +
+                ", pid=" + pid +
+                ", did=" + did +
+                '}';
+    }
 }

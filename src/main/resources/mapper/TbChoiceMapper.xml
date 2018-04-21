@@ -294,7 +294,25 @@
         ORDER BY RAND() LIMIT #{snum}
     </select>
     <select id="findAll" resultType="com.xawl.zj.pojo.ChoiceResult">
-       SELECT * FROM  tb_choice choice ,tb_difficulty difficulty,tb_point point WHERE choice.pid=point.pid AND choice.did=difficulty.did
+        SELECT * FROM tb_choice choice ,tb_difficulty difficulty,tb_point point WHERE choice.pid=point.pid AND
+        choice.did=difficulty.did
+    </select>
+    <select id="findChoiceRandom" parameterType="java.util.Map" resultType="com.xawl.zj.pojo.TbChoice">
+        select * from tb_choice
+        <where>
+            <if test="pid != 0">
+                pid = #{pid}
+            </if>
+            <if test="did != 0">
+                AND did =#{did}
+            </if>
+        </where>
+        ORDER BY RAND() LIMIT #{num}
     </select>
 
+    <select id="selectByPidAndNum" parameterType="java.util.Map" resultType="com.xawl.zj.pojo.TbChoice">
+        select * from tb_choice
+                 where  pid = #{pid}
+                 ORDER BY RAND() LIMIT #{num}
+    </select>
 </mapper>

@@ -8,7 +8,9 @@ import com.xawl.zj.pojo.TbSanswer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class SAnswerService {
@@ -37,5 +39,16 @@ public class SAnswerService {
 
     public List<TbSanswer> selectByCount(Integer sanum) {
         return tbSanswerMapper.selectByCount(sanum);
+    }
+
+    public List<TbSanswer> selectByPidAndNum(Integer pid, Integer num) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("num", num);
+        map.put("pid", pid);
+        return tbSanswerMapper.selectByPidAndNum(map);
+    }
+
+    public TbSanswer findBySaid(Integer said) {
+        return tbSanswerMapper.selectByPrimaryKey(said);
     }
 }

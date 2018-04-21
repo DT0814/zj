@@ -28,4 +28,5 @@ public interface TbPaperMapper {
     int updateByPrimaryKeySelective(TbPaper record);
 
     int updateByPrimaryKey(TbPaper record);
+
 }

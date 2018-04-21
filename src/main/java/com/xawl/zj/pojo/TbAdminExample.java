@@ -104,73 +104,73 @@ public class TbAdminExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andAidIsNull() {
-            addCriterion("aid is null");
+        public Criteria andAccountIsNull() {
+            addCriterion("account is null");
             return (Criteria) this;
         }
 
-        public Criteria andAidIsNotNull() {
-            addCriterion("aid is not null");
+        public Criteria andAccountIsNotNull() {
+            addCriterion("account is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAidEqualTo(String value) {
-            addCriterion("aid =", value, "aid");
+        public Criteria andAccountEqualTo(String value) {
+            addCriterion("account =", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAidNotEqualTo(String value) {
-            addCriterion("aid <>", value, "aid");
+        public Criteria andAccountNotEqualTo(String value) {
+            addCriterion("account <>", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAidGreaterThan(String value) {
-            addCriterion("aid >", value, "aid");
+        public Criteria andAccountGreaterThan(String value) {
+            addCriterion("account >", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAidGreaterThanOrEqualTo(String value) {
-            addCriterion("aid >=", value, "aid");
+        public Criteria andAccountGreaterThanOrEqualTo(String value) {
+            addCriterion("account >=", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAidLessThan(String value) {
-            addCriterion("aid <", value, "aid");
+        public Criteria andAccountLessThan(String value) {
+            addCriterion("account <", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAidLessThanOrEqualTo(String value) {
-            addCriterion("aid <=", value, "aid");
+        public Criteria andAccountLessThanOrEqualTo(String value) {
+            addCriterion("account <=", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAidLike(String value) {
-            addCriterion("aid like", value, "aid");
+        public Criteria andAccountLike(String value) {
+            addCriterion("account like", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAidNotLike(String value) {
-            addCriterion("aid not like", value, "aid");
+        public Criteria andAccountNotLike(String value) {
+            addCriterion("account not like", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAidIn(List<String> values) {
-            addCriterion("aid in", values, "aid");
+        public Criteria andAccountIn(List<String> values) {
+            addCriterion("account in", values, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAidNotIn(List<String> values) {
-            addCriterion("aid not in", values, "aid");
+        public Criteria andAccountNotIn(List<String> values) {
+            addCriterion("account not in", values, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAidBetween(String value1, String value2) {
-            addCriterion("aid between", value1, value2, "aid");
+        public Criteria andAccountBetween(String value1, String value2) {
+            addCriterion("account between", value1, value2, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAidNotBetween(String value1, String value2) {
-            addCriterion("aid not between", value1, value2, "aid");
+        public Criteria andAccountNotBetween(String value1, String value2) {
+            addCriterion("account not between", value1, value2, "account");
             return (Criteria) this;
         }
 

@@ -6,6 +6,7 @@
     <result column="said" property="said" jdbcType="INTEGER" />
     <result column="answer" property="answer" jdbcType="CHAR" />
     <result column="paid" property="paid" jdbcType="INTEGER" />
+    <result column="snum" property="snum" jdbcType="CHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    sapaid, said, answer, paid
+    sapaid, said, answer, paid, snum
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xawl.zj.pojo.TbSanswerPaperStudentExample" >
     select
@@ -100,9 +101,9 @@
   </delete>
   <insert id="insert" parameterType="com.xawl.zj.pojo.TbSanswerPaperStudent" >
     insert into tb_sanswer_paper_student (sapaid, said, answer, 
-      paid)
+      paid, snum)
     values (#{sapaid,jdbcType=INTEGER}, #{said,jdbcType=INTEGER}, #{answer,jdbcType=CHAR}, 
-      #{paid,jdbcType=INTEGER})
+      #{paid,jdbcType=INTEGER}, #{snum,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xawl.zj.pojo.TbSanswerPaperStudent" >
     insert into tb_sanswer_paper_student
@@ -119,6 +120,9 @@
       <if test="paid != null" >
         paid,
       </if>
+      <if test="snum != null" >
+        snum,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="sapaid != null" >
@@ -132,6 +136,9 @@
       </if>
       <if test="paid != null" >
         #{paid,jdbcType=INTEGER},
+      </if>
+      <if test="snum != null" >
+        #{snum,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
@@ -156,6 +163,9 @@
       <if test="record.paid != null" >
         paid = #{record.paid,jdbcType=INTEGER},
       </if>
+      <if test="record.snum != null" >
+        snum = #{record.snum,jdbcType=CHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -166,7 +176,8 @@
     set sapaid = #{record.sapaid,jdbcType=INTEGER},
       said = #{record.said,jdbcType=INTEGER},
       answer = #{record.answer,jdbcType=CHAR},
-      paid = #{record.paid,jdbcType=INTEGER}
+      paid = #{record.paid,jdbcType=INTEGER},
+      snum = #{record.snum,jdbcType=CHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -183,6 +194,9 @@
       <if test="paid != null" >
         paid = #{paid,jdbcType=INTEGER},
       </if>
+      <if test="snum != null" >
+        snum = #{snum,jdbcType=CHAR},
+      </if>
     </set>
     where sapaid = #{sapaid,jdbcType=INTEGER}
   </update>
@@ -190,7 +204,8 @@
     update tb_sanswer_paper_student
     set said = #{said,jdbcType=INTEGER},
       answer = #{answer,jdbcType=CHAR},
-      paid = #{paid,jdbcType=INTEGER}
+      paid = #{paid,jdbcType=INTEGER},
+      snum = #{snum,jdbcType=CHAR}
     where sapaid = #{sapaid,jdbcType=INTEGER}
   </update>
 </mapper>

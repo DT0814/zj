@@ -4,13 +4,25 @@ public class TbSanswerPaperStudent {
     private Integer sapaid;
 
     private Integer said;
+    //简答题信息
+    private TbSanswer sanswer;
 
     private String answer;
 
     private Integer paid;
 
+    private String snum;
+
     public Integer getSapaid() {
         return sapaid;
+    }
+
+    public TbSanswer getSanswer() {
+        return sanswer;
+    }
+
+    public void setSanswer(TbSanswer sanswer) {
+        this.sanswer = sanswer;
     }
 
     public void setSapaid(Integer sapaid) {
@@ -39,5 +51,13 @@ public class TbSanswerPaperStudent {
 
     public void setPaid(Integer paid) {
         this.paid = paid;
+    }
+
+    public String getSnum() {
+        return snum;
+    }
+
+    public void setSnum(String snum) {
+        this.snum = snum == null ? null : snum.trim();
     }
 }

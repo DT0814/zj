@@ -8,7 +8,9 @@ import com.xawl.zj.pojo.TbChoice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ChoiceService {
@@ -36,5 +38,20 @@ public class ChoiceService {
 
     public List<TbChoice> selectByCount(Integer snum) {
         return tbChoiceMapper.selectByCount(snum);
+    }
+
+    public List<TbChoice> findChoiceRandom(Integer num, Integer did, Integer pid) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("num", num);
+        map.put("did", did);
+        map.put("pid", pid);
+        return tbChoiceMapper.findChoiceRandom(map);
+    }
+
+    public List<TbChoice> selectByPidAndNum(Integer pid, Integer num) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("num", num);
+        map.put("pid", pid);
+        return tbChoiceMapper.selectByPidAndNum(map);
     }
 }

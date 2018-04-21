@@ -5,6 +5,7 @@ import com.xawl.zj.pojo.TbStudentExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+
 public interface TbStudentMapper {
     int countByExample(TbStudentExample example);
 
@@ -27,6 +28,4 @@ public interface TbStudentMapper {
     int updateByPrimaryKeySelective(TbStudent record);
 
     int updateByPrimaryKey(TbStudent record);
-
-    int update(TbStudent student);
 }

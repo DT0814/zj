@@ -6,6 +6,7 @@ import com.xawl.zj.pojo.TbSanswerExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TbSanswerMapper {
     int countByExample(TbSanswerExample example);
@@ -33,4 +34,6 @@ public interface TbSanswerMapper {
     List<TbSanswer> selectByCount(Integer sanum);
 
     List<SAnswerResult> findAll();
+
+    List<TbSanswer> selectByPidAndNum(Map<String, Integer> map);
 }

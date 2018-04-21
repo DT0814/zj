@@ -6,6 +6,7 @@ import com.xawl.zj.pojo.TbBlankExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TbBlankMapper {
     int countByExample(TbBlankExample example);
@@ -33,4 +34,8 @@ public interface TbBlankMapper {
     List<TbBlank> selectByCount(Integer bnum);
 
     List<BlankResult> findAll();
+
+    List<TbBlank> findBlankRandom(Map map);
+
+    List<TbBlank> selectByPidAndNum(Map<String, Integer> map);
 }

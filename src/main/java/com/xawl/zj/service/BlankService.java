@@ -8,7 +8,9 @@ import com.xawl.zj.pojo.TbBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BlankService {
@@ -36,5 +38,20 @@ public class BlankService {
 
     public List<TbBlank> selectByCount(Integer bnum) {
         return tbBlankMapper.selectByCount(bnum);
+    }
+
+    public List<TbBlank> findBlankRandom(Integer num, Integer did, Integer pid) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("num", num);
+        map.put("did", did);
+        map.put("pid", pid);
+        return tbBlankMapper.findBlankRandom(map);
+    }
+
+    public List<TbBlank> selectByPidAndNum(Integer pid, Integer num) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("num", num);
+        map.put("pid", pid);
+        return tbBlankMapper.selectByPidAndNum(map);
     }
 }

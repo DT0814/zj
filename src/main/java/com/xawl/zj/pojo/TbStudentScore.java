@@ -7,7 +7,7 @@ public class TbStudentScore {
 
     private Integer score;
 
-    private Integer pid;
+    private Integer paid;
 
     public Integer getSsid() {
         return ssid;
@@ -33,11 +33,11 @@ public class TbStudentScore {
         this.score = score;
     }
 
-    public Integer getPid() {
-        return pid;
+    public Integer getPaid() {
+        return paid;
     }
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
+    public void setPaid(Integer paid) {
+        this.paid = paid;
     }
 }

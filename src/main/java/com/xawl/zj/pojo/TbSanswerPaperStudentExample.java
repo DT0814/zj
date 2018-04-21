@@ -353,6 +353,76 @@ public class TbSanswerPaperStudentExample {
             addCriterion("paid not between", value1, value2, "paid");
             return (Criteria) this;
         }
+
+        public Criteria andSnumIsNull() {
+            addCriterion("snum is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnumIsNotNull() {
+            addCriterion("snum is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnumEqualTo(String value) {
+            addCriterion("snum =", value, "snum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnumNotEqualTo(String value) {
+            addCriterion("snum <>", value, "snum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnumGreaterThan(String value) {
+            addCriterion("snum >", value, "snum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnumGreaterThanOrEqualTo(String value) {
+            addCriterion("snum >=", value, "snum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnumLessThan(String value) {
+            addCriterion("snum <", value, "snum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnumLessThanOrEqualTo(String value) {
+            addCriterion("snum <=", value, "snum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnumLike(String value) {
+            addCriterion("snum like", value, "snum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnumNotLike(String value) {
+            addCriterion("snum not like", value, "snum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnumIn(List<String> values) {
+            addCriterion("snum in", values, "snum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnumNotIn(List<String> values) {
+            addCriterion("snum not in", values, "snum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnumBetween(String value1, String value2) {
+            addCriterion("snum between", value1, value2, "snum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnumNotBetween(String value1, String value2) {
+            addCriterion("snum not between", value1, value2, "snum");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

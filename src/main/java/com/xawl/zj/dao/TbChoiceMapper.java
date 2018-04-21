@@ -6,6 +6,7 @@ import com.xawl.zj.pojo.TbChoiceExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TbChoiceMapper {
     int countByExample(TbChoiceExample example);
@@ -33,4 +34,8 @@ public interface TbChoiceMapper {
     List<TbChoice> selectByCount(Integer snum);
 
     List<ChoiceResult> findAll();
+
+    List<TbChoice> findChoiceRandom(Map map);
+
+    List<TbChoice> selectByPidAndNum(Map<String, Integer> map);
 }

@@ -75,7 +75,7 @@
                 $("#loginModal").modal({backdrop: 'static', keyboard: false});
             },
             login: function () {
-                axios.post('/teacher/login.action', $("#LoginForm").serialize())
+                axios.post('${APP_PATH}/teacher/login.action', $("#LoginForm").serialize())
                         .then(function (response) {
                             var result = response.data;
                             if (result.code == 200) {

@@ -201,6 +201,13 @@
         ORDER BY RAND() LIMIT #{sanum}
     </select>
     <select id="findAll" resultType="com.xawl.zj.pojo.SAnswerResult">
-        SELECT * FROM  tb_sanswer sanswer ,tb_difficulty difficulty,tb_point point WHERE sanswer.pid=point.pid AND sanswer.did=difficulty.did
+        SELECT * FROM tb_sanswer sanswer ,tb_difficulty difficulty,tb_point point WHERE sanswer.pid=point.pid AND
+        sanswer.did=difficulty.did
+    </select>
+
+    <select id="selectByPidAndNum" parameterType="java.util.Map" resultType="com.xawl.zj.pojo.TbSanswer">
+        select * from tb_sanswer
+          where  pid = #{pid}
+        ORDER BY RAND() LIMIT #{num}
     </select>
 </mapper>

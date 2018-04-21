@@ -1,10 +1,12 @@
 package com.xawl.zj.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.xawl.zj.pojo.TbTeacher;
 import com.xawl.zj.service.TeacherService;
 import com.xawl.zj.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -13,6 +15,46 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class TeacherController {
     @Autowired
     private TeacherService teacherService;
+
+    @GetMapping( "/findAll.action" )
+    @ResponseBody
+    public Result findAll(Integer page, Integer num) {
+        if ( num == null || num == 0 ) {
+            num = 10;
+        }
+        PageInfo<TbTeacher> pageInfo = teacherService.findAll(page, num);
+        return Result.success(pageInfo);
+    }
+
+    @ResponseBody
+    @RequestMapping( "/insert.action" )
+    public Result insert(TbTeacher teacher) {
+        TbTeacher tb = teacherService.selectByTnum(teacher.getTnum());
+        if ( tb != null ) {
+            return Result.err(300, "工号存在");
+        } else {
+            teacher.setTpass("123456");
+            teacherService.insert(teacher);
+        }
+        return Result.success(tb);
+    }
+
+    @RequestMapping( "/resetPass.action" )
+    @ResponseBody
+    public Result resetPass(String tnum) {
+        TbTeacher teacher = new TbTeacher();
+        teacher.setTnum(tnum);
+        teacher.setTpass("123456");
+        teacherService.update(teacher);
+        return Result.success(null);
+    }
+
+    @RequestMapping( "/delete.action" )
+    @ResponseBody
+    public Result delete(String tnum) {
+        teacherService.delete(tnum);
+        return Result.success(null);
+    }
 
     @ResponseBody
     @RequestMapping( "/login.action" )

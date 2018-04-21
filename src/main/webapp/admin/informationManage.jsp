@@ -61,7 +61,6 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <button class="close" data-dismiss="modal">
-                        <span>&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -107,7 +106,7 @@
         },
         methods: {
             findByTnum: function () {
-                axios.get('/teacher/findByTnum.action?tnum=' + $.cookie('teacher_tnum')).then(function (response) {
+                axios.get('${APP_PATH}/teacher/findByTnum.action?tnum=' + $.cookie('teacher_tnum')).then(function (response) {
                     var e = $("#updateForm");
                     var data = response.data;
                     if (data.code == 200) {
@@ -122,7 +121,7 @@
                 });
             },
             update: function () {
-                axios.post('/teacher/update.action', $("#updateForm").serialize()).then(function (response) {
+                axios.post('${APP_PATH}/teacher/update.action', $("#updateForm").serialize()).then(function (response) {
                     var data = response.data;
                     if (data.code == 200) {
                         console.log(data);
@@ -143,7 +142,7 @@
                 if (pass1.val() != pass2.val()) {
                     alert("两次密码输入不一致")
                 } else {
-                    axios.post('/teacher/updatePass.action', $("#updatePassForm").serialize()).then(function (response) {
+                    axios.post('${APP_PATH}/teacher/updatePass.action', $("#updatePassForm").serialize()).then(function (response) {
                         var data = response.data;
                         if (data.code == 200) {
                             console.log(data);

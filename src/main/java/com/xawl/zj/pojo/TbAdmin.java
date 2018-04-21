@@ -1,16 +1,16 @@
 package com.xawl.zj.pojo;
 
 public class TbAdmin {
-    private String aid;
+    private String account;
 
     private String pass;
 
-    public String getAid() {
-        return aid;
+    public String getAccount() {
+        return account;
     }
 
-    public void setAid(String aid) {
-        this.aid = aid == null ? null : aid.trim();
+    public void setAccount(String account) {
+        this.account = account == null ? null : account.trim();
     }
 
     public String getPass() {

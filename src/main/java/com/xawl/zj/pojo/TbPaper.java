@@ -17,6 +17,16 @@ public class TbPaper {
 
     private Integer cid;
 
+    private TbStudentScore score;
+
+    public TbStudentScore getScore() {
+        return score;
+    }
+
+    public void setScore(TbStudentScore score) {
+        this.score = score;
+    }
+
     public Integer getPaid() {
         return paid;
     }
@@ -79,5 +89,19 @@ public class TbPaper {
 
     public void setCid(Integer cid) {
         this.cid = cid;
+    }
+
+    @Override
+    public String toString() {
+        return "TbPaper{" +
+                "paid=" + paid +
+                ", snum=" + snum +
+                ", bnum=" + bnum +
+                ", sanum=" + sanum +
+                ", tnum='" + tnum + '\'' +
+                ", name='" + name + '\'' +
+                ", time=" + time +
+                ", cid=" + cid +
+                '}';
     }
 }

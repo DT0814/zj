@@ -294,63 +294,63 @@ public class TbStudentScoreExample {
             return (Criteria) this;
         }
 
-        public Criteria andPidIsNull() {
-            addCriterion("pid is null");
+        public Criteria andPaidIsNull() {
+            addCriterion("paid is null");
             return (Criteria) this;
         }
 
-        public Criteria andPidIsNotNull() {
-            addCriterion("pid is not null");
+        public Criteria andPaidIsNotNull() {
+            addCriterion("paid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPidEqualTo(Integer value) {
-            addCriterion("pid =", value, "pid");
+        public Criteria andPaidEqualTo(Integer value) {
+            addCriterion("paid =", value, "paid");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotEqualTo(Integer value) {
-            addCriterion("pid <>", value, "pid");
+        public Criteria andPaidNotEqualTo(Integer value) {
+            addCriterion("paid <>", value, "paid");
             return (Criteria) this;
         }
 
-        public Criteria andPidGreaterThan(Integer value) {
-            addCriterion("pid >", value, "pid");
+        public Criteria andPaidGreaterThan(Integer value) {
+            addCriterion("paid >", value, "paid");
             return (Criteria) this;
         }
 
-        public Criteria andPidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("pid >=", value, "pid");
+        public Criteria andPaidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("paid >=", value, "paid");
             return (Criteria) this;
         }
 
-        public Criteria andPidLessThan(Integer value) {
-            addCriterion("pid <", value, "pid");
+        public Criteria andPaidLessThan(Integer value) {
+            addCriterion("paid <", value, "paid");
             return (Criteria) this;
         }
 
-        public Criteria andPidLessThanOrEqualTo(Integer value) {
-            addCriterion("pid <=", value, "pid");
+        public Criteria andPaidLessThanOrEqualTo(Integer value) {
+            addCriterion("paid <=", value, "paid");
             return (Criteria) this;
         }
 
-        public Criteria andPidIn(List<Integer> values) {
-            addCriterion("pid in", values, "pid");
+        public Criteria andPaidIn(List<Integer> values) {
+            addCriterion("paid in", values, "paid");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotIn(List<Integer> values) {
-            addCriterion("pid not in", values, "pid");
+        public Criteria andPaidNotIn(List<Integer> values) {
+            addCriterion("paid not in", values, "paid");
             return (Criteria) this;
         }
 
-        public Criteria andPidBetween(Integer value1, Integer value2) {
-            addCriterion("pid between", value1, value2, "pid");
+        public Criteria andPaidBetween(Integer value1, Integer value2) {
+            addCriterion("paid between", value1, value2, "paid");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotBetween(Integer value1, Integer value2) {
-            addCriterion("pid not between", value1, value2, "pid");
+        public Criteria andPaidNotBetween(Integer value1, Integer value2) {
+            addCriterion("paid not between", value1, value2, "paid");
             return (Criteria) this;
         }
     }

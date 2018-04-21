@@ -30,4 +30,8 @@ public class ClassService {
         tbClass.setIsdel(0);
         return classMapper.updateByPrimaryKeySelective(tbClass);
     }
+
+    public TbClass findByCid(Integer cid) {
+        return classMapper.selectByPrimaryKey(cid);
+    }
 }

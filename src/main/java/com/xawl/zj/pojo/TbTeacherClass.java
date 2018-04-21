@@ -7,6 +7,16 @@ public class TbTeacherClass {
 
     private Integer cid;
 
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Integer getTcid() {
         return tcid;
     }

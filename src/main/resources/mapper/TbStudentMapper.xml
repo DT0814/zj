@@ -6,6 +6,8 @@
     <result column="sname" property="sname" jdbcType="CHAR" />
     <result column="cid" property="cid" jdbcType="INTEGER" />
     <result column="spass" property="spass" jdbcType="CHAR" />
+    <result column="token" property="token" jdbcType="CHAR" />
+    <result column="tokenpass" property="tokenpass" jdbcType="CHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    snum, sname, cid, spass
+    snum, sname, cid, spass, token, tokenpass
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xawl.zj.pojo.TbStudentExample" >
     select
@@ -99,10 +101,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.xawl.zj.pojo.TbStudent" >
-    insert into tb_student (snum, sname, cid, spass
-      )
-    values (#{snum,jdbcType=CHAR}, #{sname,jdbcType=CHAR}, #{cid,jdbcType=INTEGER}, #{spass,jdbcType=CHAR}
-      )
+    insert into tb_student (snum, sname, cid, spass, 
+      token, tokenpass)
+    values (#{snum,jdbcType=CHAR}, #{sname,jdbcType=CHAR}, #{cid,jdbcType=INTEGER}, #{spass,jdbcType=CHAR}, 
+      #{token,jdbcType=CHAR}, #{tokenpass,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xawl.zj.pojo.TbStudent" >
     insert into tb_student
@@ -119,6 +121,12 @@
       <if test="spass != null" >
         spass,
       </if>
+      <if test="token != null" >
+        token,
+      </if>
+      <if test="tokenpass != null" >
+        tokenpass,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="snum != null" >
@@ -132,6 +140,12 @@
       </if>
       <if test="spass != null" >
         #{spass,jdbcType=CHAR},
+      </if>
+      <if test="token != null" >
+        #{token,jdbcType=CHAR},
+      </if>
+      <if test="tokenpass != null" >
+        #{tokenpass,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
@@ -156,6 +170,12 @@
       <if test="record.spass != null" >
         spass = #{record.spass,jdbcType=CHAR},
       </if>
+      <if test="record.token != null" >
+        token = #{record.token,jdbcType=CHAR},
+      </if>
+      <if test="record.tokenpass != null" >
+        tokenpass = #{record.tokenpass,jdbcType=CHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -166,7 +186,9 @@
     set snum = #{record.snum,jdbcType=CHAR},
       sname = #{record.sname,jdbcType=CHAR},
       cid = #{record.cid,jdbcType=INTEGER},
-      spass = #{record.spass,jdbcType=CHAR}
+      spass = #{record.spass,jdbcType=CHAR},
+      token = #{record.token,jdbcType=CHAR},
+      tokenpass = #{record.tokenpass,jdbcType=CHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -183,6 +205,12 @@
       <if test="spass != null" >
         spass = #{spass,jdbcType=CHAR},
       </if>
+      <if test="token != null" >
+        token = #{token,jdbcType=CHAR},
+      </if>
+      <if test="tokenpass != null" >
+        tokenpass = #{tokenpass,jdbcType=CHAR},
+      </if>
     </set>
     where snum = #{snum,jdbcType=CHAR}
   </update>
@@ -190,7 +218,9 @@
     update tb_student
     set sname = #{sname,jdbcType=CHAR},
       cid = #{cid,jdbcType=INTEGER},
-      spass = #{spass,jdbcType=CHAR}
+      spass = #{spass,jdbcType=CHAR},
+      token = #{token,jdbcType=CHAR},
+      tokenpass = #{tokenpass,jdbcType=CHAR}
     where snum = #{snum,jdbcType=CHAR}
   </update>
 </mapper>

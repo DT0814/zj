@@ -2,8 +2,9 @@ package com.xawl.zj.dao;
 
 import com.xawl.zj.pojo.TbTeacherClass;
 import com.xawl.zj.pojo.TbTeacherClassExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface TbTeacherClassMapper {
     int countByExample(TbTeacherClassExample example);
@@ -27,4 +28,6 @@ public interface TbTeacherClassMapper {
     int updateByPrimaryKeySelective(TbTeacherClass record);
 
     int updateByPrimaryKey(TbTeacherClass record);
+
+    List<TbTeacherClass> findByTnum(String tnum);
 }

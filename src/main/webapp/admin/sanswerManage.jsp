@@ -89,7 +89,6 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <button class="close" data-dismiss="modal">
-                        <span>&times;</span>
                     </button>
                 </div>
                 <div class="modal-title">
@@ -132,7 +131,6 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <button class="close" data-dismiss="modal">
-                        <span>&times;</span>
                     </button>
                 </div>
                 <div class="modal-title">
@@ -180,7 +178,7 @@
         },
         methods: {
             updateModal: function (sa) {
-                axios.get('/difficulty/findAll.action')
+                axios.get('${APP_PATH}/difficulty/findAll.action')
                         .then(function (response) {
                             var dse = $("#updateForm").find("select[name='did']");
                             dse.empty();
@@ -192,7 +190,7 @@
                                 option.appendTo(dse);
                             })
                         });
-                axios.get('/point/findAll.action')
+                axios.get('${APP_PATH}/point/findAll.action')
                         .then(function (response) {
                             var pse = $("#updateForm").find("select[name='pid']");
                             pse.empty();
@@ -211,7 +209,7 @@
                 $("#updateModal").modal();
             },
             update: function () {
-                axios.post('/sanswer/update.action', $("#updateForm").serialize())
+                axios.post('${APP_PATH}/sanswer/update.action', $("#updateForm").serialize())
                         .then(function (response) {
                             var result = response.data;
                             if (result.code == 200) {
@@ -224,18 +222,18 @@
                         });
             },
             addmodal: function () {
-                axios.get('/difficulty/findAll.action')
+                axios.get('${APP_PATH}/difficulty/findAll.action')
                         .then(function (response) {
                             vu.difficulty = response.data.data;
                         });
-                axios.get('/point/findAll.action')
+                axios.get('${APP_PATH}/point/findAll.action')
                         .then(function (response) {
                             vu.point = response.data.data;
                         });
                 $("#addModal").modal();
             },
             add: function () {
-                axios.post('/sanswer/insert.action', $("#addForm").serialize())
+                axios.post('${APP_PATH}/sanswer/insert.action', $("#addForm").serialize())
                         .then(function (response) {
                             var result = response.data;
                             if (result.code == 200) {
@@ -248,14 +246,14 @@
                         });
             },
             topage: function (page) {
-                axios.get('/sanswer/findAll.action?page=' + page)
+                axios.get('${APP_PATH}/sanswer/findAll.action?page=' + page)
                         .then(function (response) {
                             console.log(response);
                             vu.pageInfo = response.data.data;
                         });
             },
             deleteC: function (said) {
-                axios.get('/sanswer/delete.action?said=' + said)
+                axios.get('${APP_PATH}/sanswer/delete.action?said=' + said)
                         .then(function (response) {
                             var data = response.data;
                             if (data.code == 200) {

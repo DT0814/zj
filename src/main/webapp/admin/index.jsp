@@ -38,6 +38,12 @@
         <li><a href="${APP_PATH}/toPage.action?pageName=sanswerManage"
                target="right"><span class="icon-caret-right"></span>简答题管理</a>
         </li>
+        <li><a href="${APP_PATH}/toPage.action?pageName=paperManage"
+               target="right"><span class="icon-caret-right"></span>试卷维护</a>
+        </li>
+        <li><a href="${APP_PATH}/toPage.action?pageName=teacherClassManage"
+               target="right"><span class="icon-caret-right"></span>班级维护</a>
+        </li>
         <li><a href="${APP_PATH}/toPage.action?pageName=informationManage"
                target="right"><span class="icon-caret-right"></span>信息维护</a>
         </li>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xawl.zj.dao.TbAdminMapper" >
   <resultMap id="BaseResultMap" type="com.xawl.zj.pojo.TbAdmin" >
-    <id column="aid" property="aid" jdbcType="CHAR" />
+    <id column="account" property="account" jdbcType="CHAR" />
     <result column="pass" property="pass" jdbcType="CHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -64,7 +64,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    aid, pass
+    account, pass
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xawl.zj.pojo.TbAdminExample" >
     select
@@ -84,11 +84,11 @@
     select 
     <include refid="Base_Column_List" />
     from tb_admin
-    where aid = #{aid,jdbcType=CHAR}
+    where account = #{account,jdbcType=CHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from tb_admin
-    where aid = #{aid,jdbcType=CHAR}
+    where account = #{account,jdbcType=CHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.xawl.zj.pojo.TbAdminExample" >
     delete from tb_admin
@@ -97,22 +97,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.xawl.zj.pojo.TbAdmin" >
-    insert into tb_admin (aid, pass)
-    values (#{aid,jdbcType=CHAR}, #{pass,jdbcType=CHAR})
+    insert into tb_admin (account, pass)
+    values (#{account,jdbcType=CHAR}, #{pass,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xawl.zj.pojo.TbAdmin" >
     insert into tb_admin
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="aid != null" >
-        aid,
+      <if test="account != null" >
+        account,
       </if>
       <if test="pass != null" >
         pass,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="aid != null" >
-        #{aid,jdbcType=CHAR},
+      <if test="account != null" >
+        #{account,jdbcType=CHAR},
       </if>
       <if test="pass != null" >
         #{pass,jdbcType=CHAR},
@@ -128,8 +128,8 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update tb_admin
     <set >
-      <if test="record.aid != null" >
-        aid = #{record.aid,jdbcType=CHAR},
+      <if test="record.account != null" >
+        account = #{record.account,jdbcType=CHAR},
       </if>
       <if test="record.pass != null" >
         pass = #{record.pass,jdbcType=CHAR},
@@ -141,7 +141,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update tb_admin
-    set aid = #{record.aid,jdbcType=CHAR},
+    set account = #{record.account,jdbcType=CHAR},
       pass = #{record.pass,jdbcType=CHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -154,11 +154,11 @@
         pass = #{pass,jdbcType=CHAR},
       </if>
     </set>
-    where aid = #{aid,jdbcType=CHAR}
+    where account = #{account,jdbcType=CHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xawl.zj.pojo.TbAdmin" >
     update tb_admin
     set pass = #{pass,jdbcType=CHAR}
-    where aid = #{aid,jdbcType=CHAR}
+    where account = #{account,jdbcType=CHAR}
   </update>
 </mapper>
