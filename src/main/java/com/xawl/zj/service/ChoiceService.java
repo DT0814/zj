@@ -54,4 +54,8 @@ public class ChoiceService {
         map.put("pid", pid);
         return tbChoiceMapper.selectByPidAndNum(map);
     }
+
+    public TbChoice getOne() {
+        return tbChoiceMapper.getOneRandom();
+    }
 }

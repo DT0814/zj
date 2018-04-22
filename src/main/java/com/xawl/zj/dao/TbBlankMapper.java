@@ -38,4 +38,6 @@ public interface TbBlankMapper {
     List<TbBlank> findBlankRandom(Map map);
 
     List<TbBlank> selectByPidAndNum(Map<String, Integer> map);
+
+    TbBlank getOneRandom();
 }

@@ -35,6 +35,18 @@
                 href="${APP_PATH}/admin/toPage.action?pageName=teacherManage"
                 target="right"><span class="icon-caret-right"></span>教师管理</a>
         </li>
+        <li><a
+                href="${APP_PATH}/admin/toPage.action?pageName=classManage"
+                target="right"><span class="icon-caret-right"></span>班级管理</a>
+        </li>
+        <li><a
+                href="${APP_PATH}/admin/toPage.action?pageName=pointManage"
+                target="right"><span class="icon-caret-right"></span>知识点管理</a>
+        </li>
+        <li><a
+                href="${APP_PATH}/admin/toPage.action?pageName=difficultyManage"
+                target="right"><span class="icon-caret-right"></span>难度分类管理</a>
+        </li>
     </ul>
 </div>
 <div class="admin">

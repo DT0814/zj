@@ -52,4 +52,11 @@ public class ChoiceController {
         int i = choiceService.delete(choice);
         return Result.success(null);
     }
+
+    @RequestMapping( "/getOne.action" )
+    @ResponseBody
+    public Result getOne() {
+        TbChoice choice = choiceService.getOne();
+        return Result.success(choice);
+    }
 }

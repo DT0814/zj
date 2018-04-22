@@ -24,9 +24,17 @@ public class ClassContorller {
         return Result.success(list);
     }
 
+    @GetMapping( "/AdminFindAll.action" )
+    @ResponseBody
+    public Result AdminFindAll() {
+        List<TbClass> list = classService.AdminFindAll();
+        return Result.success(list);
+    }
+
     @RequestMapping( "/insert.action" )
     @ResponseBody
     public Result insert(TbClass tbClass) {
+        tbClass.setIsdel(1);
         int i = classService.insert(tbClass);
         return Result.success(null);
     }

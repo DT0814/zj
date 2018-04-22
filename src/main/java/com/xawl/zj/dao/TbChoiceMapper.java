@@ -38,4 +38,6 @@ public interface TbChoiceMapper {
     List<TbChoice> findChoiceRandom(Map map);
 
     List<TbChoice> selectByPidAndNum(Map<String, Integer> map);
+
+    TbChoice getOneRandom();
 }

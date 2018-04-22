@@ -54,4 +54,8 @@ public class BlankService {
         map.put("pid", pid);
         return tbBlankMapper.selectByPidAndNum(map);
     }
+
+    public TbBlank getOne() {
+        return tbBlankMapper.getOneRandom();
+    }
 }

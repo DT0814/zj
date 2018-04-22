@@ -315,4 +315,9 @@
                  where  pid = #{pid}
                  ORDER BY RAND() LIMIT #{num}
     </select>
+
+    <select id="getOneRandom" resultType="com.xawl.zj.pojo.TbChoice">
+        select * from tb_choice
+        ORDER BY RAND() LIMIT 1
+    </select>
 </mapper>

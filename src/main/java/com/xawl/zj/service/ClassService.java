@@ -14,7 +14,15 @@ public class ClassService {
     private TbClassMapper classMapper;
 
     public List<TbClass> findAll() {
-        List<TbClass> list = classMapper.selectByExample(new TbClassExample());
+        TbClassExample tbClassExample = new TbClassExample();
+        tbClassExample.createCriteria().andIsdelNotEqualTo(1);
+        List<TbClass> list = classMapper.selectByExample(tbClassExample);
+        return list;
+    }
+
+    public List<TbClass> AdminFindAll() {
+        TbClassExample tbClassExample = new TbClassExample();
+        List<TbClass> list = classMapper.selectByExample(tbClassExample);
         return list;
     }
 

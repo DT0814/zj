@@ -251,4 +251,11 @@
         where  pid = #{pid}
         ORDER BY RAND() LIMIT #{num}
     </select>
+
+    <select id="getOneRandom" resultType="com.xawl.zj.pojo.TbBlank">
+        select * from tb_blank
+        ORDER BY RAND() LIMIT 1
+    </select>
+
+
 </mapper>

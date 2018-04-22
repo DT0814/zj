@@ -52,4 +52,11 @@ public class BlankController {
         int i = blankService.delete(blank);
         return Result.success(null);
     }
+
+    @RequestMapping( "/getOne.action" )
+    @ResponseBody
+    public Result getOne() {
+        TbBlank blank = blankService.getOne();
+        return Result.success(blank);
+    }
 }

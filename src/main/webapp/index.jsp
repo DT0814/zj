@@ -33,10 +33,6 @@ padding-top: 6px;padding-top: 10px;font-weight: bold;">
     <div id="bodyDiv">
 
     </div>
-    <%--    <div>
-            <span class="btn btn-primary " v-on:click="showModal()">点击练习</span>
-            <span class="btn btn-primary " v-on:click="showExam()">考试详情</span>
-        </div>--%>
     <!--练习题-->
     <div id="addModal" class="modal fade">
         <div class="modal-dialog">
@@ -115,7 +111,6 @@ padding-top: 6px;padding-top: 10px;font-weight: bold;">
     <form id="paperSubmitForm">
 
     </form>
-
 </div>
 <script>
     var tryingForm;
@@ -145,24 +140,6 @@ padding-top: 6px;padding-top: 10px;font-weight: bold;">
                 alert("注销成功 !");
                 location.href = "http://localhost:8080/login.jsp";
             },
-            /*            showModal: function () {
-             axios.get('${APP_PATH}/difficulty/findAll.action')
-             .then(function (response) {
-             vu.difficulty = response.data.data;
-             });
-             axios.get('${APP_PATH}/point/findAll.action')
-             .then(function (response) {
-             vu.point = response.data.data;
-             });
-             $("#addModal").modal();
-             },
-             showExam: function () {
-             axios.get('${APP_PATH}/paper/showMyPaper.action?snum=' + $.cookie('student_snum'))
-             .then(function (response) {
-             vu.papers = response.data.data;
-             });
-             $("#showPaper").modal();
-             },*/
             begin: function (paid) {
                 var form = $("#paperSubmitForm");
                 var url = "${APP_PATH}/paper/getPaper.action";
@@ -198,11 +175,16 @@ padding-top: 6px;padding-top: 10px;font-weight: bold;">
                             });
                     examTab.appendTo(bd);
                 } else if (num == 3) {
-                    $("#bodyDiv").html("期末练习");
+                    $("#bodyDiv").html("<span class='btn btn-primary' onclick='toFinalReview()'>点击去练习</span>");
+                    alert("123")
                 }
             },
         }
     });
+
+    function toFinalReview() {
+        location.href = "http://localhost:8080/finalReview.jsp";
+    }
 </script>
 </body>
 
